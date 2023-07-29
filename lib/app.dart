@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taskmanager/splash_screen.dart';
+import 'package:taskmanager/ui/screens/splash_screen.dart';
 
 class TaskManager extends StatelessWidget {
   const TaskManager({super.key});
