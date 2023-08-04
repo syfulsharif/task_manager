@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AssetsUtils {
-  static const String pathToImages = 'assets/images';
-  static const String logoSVG = '$pathToImages/logo.svg';
-  static const String backgroundSVG = '$pathToImages/background.svg';
+  AssetsUtils._();
+
+  static const String _pathToImages = 'assets/images';
+  static const String logoSVG = '$_pathToImages/logo.svg';
+  static const String backgroundSVG = '$_pathToImages/background.svg';
 }
