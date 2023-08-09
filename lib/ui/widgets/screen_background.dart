@@ -15,7 +15,7 @@ class ScreenBackground extends StatelessWidget {
           width: double.infinity,
           child: SvgPicture.asset(
             AssetsUtils.backgroundSVG,
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.fill,
           ),
           // decoration: const BoxDecoration(
           //   color: Colors.blue,

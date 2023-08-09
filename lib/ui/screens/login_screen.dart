@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taskmanager/ui/screens/email_verification_screen.dart';
 import 'package:taskmanager/ui/widgets/screen_background.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -15,7 +16,7 @@ class LoginScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 Text(
+                Text(
                   'Get Started With',
                   style: Theme.of(context).textTheme.titleLarge,
                   // style: TextStyle(fontSize: 32, fontWeight: FontWeight.w500),
@@ -50,9 +51,16 @@ class LoginScreen extends StatelessWidget {
                 ),
                 Center(
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const EmailVerificationScreen(),
+                        ),
+                      );
+                    },
                     child: const Text(
-                      'Fogot Password?',
+                      'Forgot Password?',
                       style: TextStyle(color: Colors.grey),
                     ),
                   ),
@@ -60,10 +68,14 @@ class LoginScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Don\'t have account?'),
+                    const Text(
+                      'Don\'t have account?',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500, letterSpacing: 0.5),
+                    ),
                     TextButton(
                       onPressed: () {},
-                      child: Text('Sign Up'),
+                      child: const Text('Sign Up'),
                     )
                   ],
                 )
