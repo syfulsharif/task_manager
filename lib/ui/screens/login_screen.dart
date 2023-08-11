@@ -10,76 +10,81 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: ScreenBackground(
         child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Get Started With',
-                  style: Theme.of(context).textTheme.titleLarge,
-                  // style: TextStyle(fontSize: 32, fontWeight: FontWeight.w500),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                const TextField(
-                  decoration: InputDecoration(hintText: 'Email'),
-                ),
-                const SizedBox(
-                  height: 12,
-                ),
-                const TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: 'Password',
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 64,
                   ),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Icon(Icons.arrow_forward_ios),
+                  Text(
+                    'Get Started With',
+                    style: Theme.of(context).textTheme.titleLarge,
+                    // style: TextStyle(fontSize: 32, fontWeight: FontWeight.w500),
                   ),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                Center(
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const EmailVerificationScreen(),
-                        ),
-                      );
-                    },
-                    child: const Text(
-                      'Forgot Password?',
-                      style: TextStyle(color: Colors.grey),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  const TextField(
+                    decoration: InputDecoration(hintText: 'Email'),
+                  ),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  const TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      hintText: 'Password',
                     ),
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'Don\'t have an account?',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500, letterSpacing: 0.5),
-                    ),
-                    TextButton(
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
                       onPressed: () {},
-                      child: const Text('Sign Up'),
-                    )
-                  ],
-                )
-              ],
+                      child: const Icon(Icons.arrow_forward_ios),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Center(
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const EmailVerificationScreen(),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        'Forgot Password?',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Don\'t have an account?',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500, letterSpacing: 0.5),
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text('Sign Up'),
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ),
