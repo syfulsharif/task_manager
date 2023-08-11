@@ -29,6 +29,7 @@ class LoginScreen extends StatelessWidget {
                     height: 16,
                   ),
                   const TextField(
+                    keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(hintText: 'Email'),
                   ),
                   const SizedBox(
