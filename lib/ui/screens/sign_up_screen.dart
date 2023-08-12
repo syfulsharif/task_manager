@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:taskmanager/ui/screens/email_verification_screen.dart';
-import 'package:taskmanager/ui/screens/sign_up_screen.dart';
+import 'package:taskmanager/ui/screens/login_screen.dart';
 import 'package:taskmanager/ui/widgets/screen_background.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class LoginScreen extends StatelessWidget {
                     height: 64,
                   ),
                   Text(
-                    'Get Started With',
+                    'Join With Us',
                     style: Theme.of(context).textTheme.titleLarge,
                     // style: TextStyle(fontSize: 32, fontWeight: FontWeight.w500),
                   ),
@@ -32,6 +32,30 @@ class LoginScreen extends StatelessWidget {
                   const TextField(
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(hintText: 'Email'),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  const TextField(
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(hintText: 'First Name'),
+                  ),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  const TextField(
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(hintText: 'Last Name'),
+                  ),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  const TextField(
+                    keyboardType: TextInputType.phone,
+                    decoration: InputDecoration(hintText: 'Phone'),
+                  ),
+                  const SizedBox(
+                    height: 12,
                   ),
                   const SizedBox(
                     height: 12,
@@ -48,48 +72,33 @@ class LoginScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginScreen(),
+                          ),
+                        );
+                      },
                       child: const Icon(Icons.arrow_forward_ios),
                     ),
                   ),
                   const SizedBox(
                     height: 16,
                   ),
-                  Center(
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                const EmailVerificationScreen(),
-                          ),
-                        );
-                      },
-                      child: const Text(
-                        'Forgot Password?',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                    ),
-                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        'Don\'t have an account?',
+                        'Already have an account?',
                         style: TextStyle(
                             fontWeight: FontWeight.w500, letterSpacing: 0.5),
                       ),
                       TextButton(
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const SignUpScreen(),
-                            ),
-                          );
+                          Navigator.pop(context);
                         },
-                        child: const Text('Sign Up'),
+                        child: const Text('Sign In'),
                       )
                     ],
                   )
