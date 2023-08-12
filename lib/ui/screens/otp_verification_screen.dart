@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:taskmanager/ui/screens/login_screen.dart';
 import 'package:taskmanager/ui/widgets/screen_background.dart';
 
 class OTPVerificationScreen extends StatelessWidget {
@@ -36,18 +38,43 @@ class OTPVerificationScreen extends StatelessWidget {
                 const SizedBox(
                   height: 24,
                 ),
-                const TextField(
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(hintText: 'Email'),
-                ),
-                const SizedBox(
-                  height: 16,
+                PinCodeTextField(
+                  length: 6,
+                  obscureText: false,
+                  animationType: AnimationType.fade,
+                  keyboardType: TextInputType.number,
+                  pinTheme: PinTheme(
+                      shape: PinCodeFieldShape.box,
+                      borderRadius: BorderRadius.circular(5),
+                      fieldHeight: 50,
+                      fieldWidth: 40,
+                      activeFillColor: Colors.green,
+                      inactiveColor: Colors.red,
+                      inactiveFillColor: Colors.white,
+                      selectedColor: Colors.green,
+                      selectedFillColor: Colors.white),
+                  animationDuration: const Duration(milliseconds: 300),
+                  backgroundColor: Colors.white,
+                  cursorColor: Colors.green,
+                  enablePinAutofill: true,
+                  enableActiveFill: true,
+                  onCompleted: (v) {
+                    print("Completed");
+                  },
+                  beforeTextPaste: (text) {
+                    print("Allowing to paste $text");
+                    //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
+                    //but you can show anything you want here, like your pop up saying wrong paste format or etc
+                    return true;
+                  },
+                  appContext: context,
+                  onChanged: (value) {},
                 ),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {},
-                    child: const Icon(Icons.arrow_forward_ios),
+                    child: const Text('Verify'),
                   ),
                 ),
                 const SizedBox(
@@ -63,7 +90,11 @@ class OTPVerificationScreen extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {
-                        Navigator.pop(context);
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginScreen()),
+                            (route) => false);
                       },
                       child: const Text('Sign In'),
                     )
